@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { useState } from "react";
+import {
+  WebtoonAnimation,
+  SilverWallAnimation,
+  TerminalAnimation,
+  EvolutionAtlasAnimation,
+  SVGForgeAnimation,
+  SolarCoreAnimation,
+  LifeSyncAnimation,
+} from "@/components/ProjectAnimations";
 
 /**
  * DESIGN PHILOSOPHY: Minimalist Glassmorphism with Editorial Elegance
@@ -11,7 +20,7 @@ import { useState } from "react";
  * - Serif typography (Playfair Display) for headings, sans-serif (Inter) for body
  * - Light pastel colors (off-white, soft lavender) with deep charcoal accents
  * - Asymmetric layouts that feel spacious and premium
- * - Subtle animations that guide attention without distraction
+ * - SVG animations that reflect each project's essence
  */
 
 interface Project {
@@ -25,8 +34,7 @@ interface Project {
   tags: string[];
   year: string;
   metrics: string[];
-  links?: { label: string; url: string }[];
-  image: string;
+  animation: React.ComponentType;
 }
 
 const projects: Project[] = [
@@ -47,8 +55,7 @@ const projects: Project[] = [
     tags: ["Next.js", "Radix UI", "Zustand", "UI Design"],
     year: "2024",
     metrics: ["Speed: Next 14", "Scale: Radix UI", "Uptime: Zustand"],
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/webtoon-redesign-NiCCpvMSHyA49ugKgG4PHo.webp",
+    animation: WebtoonAnimation,
   },
   {
     id: "silverwall-telemetry",
@@ -67,8 +74,7 @@ const projects: Project[] = [
     tags: ["SpacetimeDB", "WebSocket", "Google Gemini", "Real-time Data"],
     year: "2024",
     metrics: ["Speed: 20ms latency", "Scale: 20+ Drivers", "Uptime: 99.9%"],
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/silverwall-telemetry-UqT6C2gLwVdCZ7y6fSCsmZ.webp",
+    animation: SilverWallAnimation,
   },
   {
     id: "the-terminal",
@@ -87,8 +93,7 @@ const projects: Project[] = [
     tags: ["Browser OS", "Gamification", "VFS", "Education"],
     year: "2023",
     metrics: ["Speed: 50+ Built-ins", "Scale: 1M+ XP Points", "Uptime: 1.2k+ Users"],
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/the-terminal-CgULrdTbgxWFBn4wLNvom.webp",
+    animation: TerminalAnimation,
   },
   {
     id: "evolution-atlas",
@@ -107,8 +112,7 @@ const projects: Project[] = [
     tags: ["GLSL", "WebGL", "Procedural", "Creative Coding"],
     year: "2023",
     metrics: ["Speed: 60fps", "Scale: 30+ Shaders", "Uptime: 7 Exhibits"],
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/evolution-atlas-RDbAF37N83bbqcAD3NUi63.webp",
+    animation: EvolutionAtlasAnimation,
   },
   {
     id: "svg-forge",
@@ -127,8 +131,7 @@ const projects: Project[] = [
     tags: ["SVG", "SMIL", "Animation", "Developer Tool"],
     year: "2023",
     metrics: ["Speed: 60fps", "Scale: 100% Native", "Uptime: 0 Dependencies"],
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/svg-forge-CKm4cMcnuTDEd4TWnQK4Db.webp",
+    animation: SVGForgeAnimation,
   },
   {
     id: "solar-core",
@@ -147,8 +150,7 @@ const projects: Project[] = [
     tags: ["WebGL", "Physics", "3D Graphics", "NASA Data"],
     year: "2023",
     metrics: ["Speed: 60fps", "Scale: NASA Textures", "Uptime: Custom Physics Engine"],
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/solar-core-LruAkiNNEDPk2GHhTsxXog.webp",
+    animation: SolarCoreAnimation,
   },
   {
     id: "lifesync",
@@ -167,8 +169,7 @@ const projects: Project[] = [
     tags: ["AI", "Vector DB", "OpenAI", "Wellness Tech"],
     year: "2024",
     metrics: ["Speed: Real-time sync", "Scale: 1M+ Vector DB Vectors", "Uptime: 94% Accuracy"],
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/lifesync-oCn4nMbmjxkNpcbD8UR7aN.webp",
+    animation: LifeSyncAnimation,
   },
 ];
 
@@ -185,18 +186,11 @@ const skills = [
 
 const experience = [
   {
-    role: "UI/UX Designer & Creative Technologist",
-    company: "Freelance",
-    period: "2023 - Present",
-    description:
-      "Designing and building digital experiences at the intersection of design, technology, and human behavior. Specializing in high-performance web applications and creative computational projects.",
-  },
-  {
     role: "Systems Engineer",
     company: "Cognizant Technology Solutions",
-    period: "2022 - 2023",
+    period: "2024 - Present",
     description:
-      "Provided infrastructure support and service management across cross-functional teams. Specialized in visualization, Linux administration, and network monitoring tools.",
+      "Providing infrastructure support and service management across cross-functional teams. Specializing in visualization, Linux administration, and network monitoring tools.",
   },
 ];
 
@@ -296,83 +290,84 @@ export default function Home() {
 
           {/* Projects Grid */}
           <div className="grid gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-                className={`group glass p-8 md:p-12 transition-all duration-300 cursor-pointer ${
-                  hoveredProject === project.id ? "shadow-2xl scale-[1.02]" : "shadow-lg"
-                } ${index % 2 === 1 ? "md:ml-12" : ""}`}
-              >
-                <div className="grid md:grid-cols-3 gap-8 items-start">
-                  {/* Project info */}
-                  <div className="md:col-span-2 space-y-4">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-2">
-                          <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
-                            {project.category}
-                          </p>
-                          <span
-                            className="px-2 py-1 rounded-full text-xs font-semibold text-white"
-                            style={{ backgroundColor: project.statusColor }}
-                          >
-                            {project.status}
-                          </span>
+            {projects.map((project, index) => {
+              const AnimationComponent = project.animation;
+              return (
+                <div
+                  key={project.id}
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                  className={`group glass p-8 md:p-12 transition-all duration-300 cursor-pointer ${
+                    hoveredProject === project.id ? "shadow-2xl scale-[1.02]" : "shadow-lg"
+                  } ${index % 2 === 1 ? "md:ml-12" : ""}`}
+                >
+                  <div className="grid md:grid-cols-3 gap-8 items-start">
+                    {/* Project info */}
+                    <div className="md:col-span-2 space-y-4">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <div className="flex items-center gap-2 mb-2">
+                            <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
+                              {project.category}
+                            </p>
+                            <span
+                              className="px-2 py-1 rounded-full text-xs font-semibold text-white"
+                              style={{ backgroundColor: project.statusColor }}
+                            >
+                              {project.status}
+                            </span>
+                          </div>
+                          <h3 className="font-display text-3xl font-semibold mb-2">{project.title}</h3>
+                          <p className="text-sm text-muted-foreground font-medium">{project.year}</p>
                         </div>
-                        <h3 className="font-display text-3xl font-semibold mb-2">{project.title}</h3>
-                        <p className="text-sm text-muted-foreground font-medium">{project.year}</p>
+                      </div>
+
+                      <p className="text-base text-foreground/80 leading-relaxed max-w-xl">
+                        {project.description}
+                      </p>
+
+                      {/* Key details */}
+                      <div className="space-y-2 pt-4">
+                        {project.details.slice(0, 2).map((detail, idx) => (
+                          <div key={idx} className="flex gap-2 text-sm text-foreground/70">
+                            <span className="text-primary">•</span>
+                            <span>{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 pt-4">
+                        {project.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 bg-muted text-muted-foreground text-xs font-medium rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Metrics */}
+                      <div className="flex flex-wrap gap-4 pt-4 border-t border-border/50">
+                        {project.metrics.map((metric, idx) => (
+                          <div key={idx} className="text-xs">
+                            <p className="text-muted-foreground">{metric}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
 
-                    <p className="text-base text-foreground/80 leading-relaxed max-w-xl">
-                      {project.description}
-                    </p>
-
-                    {/* Key details */}
-                    <div className="space-y-2 pt-4">
-                      {project.details.slice(0, 2).map((detail, idx) => (
-                        <div key={idx} className="flex gap-2 text-sm text-foreground/70">
-                          <span className="text-primary">•</span>
-                          <span>{detail}</span>
-                        </div>
-                      ))}
+                    {/* SVG Animation */}
+                    <div className="hidden md:block">
+                      <div className="w-full h-48 glass p-4 rounded-lg group-hover:scale-105 transition-transform duration-300">
+                        <AnimationComponent />
+                      </div>
                     </div>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 pt-4">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 bg-muted text-muted-foreground text-xs font-medium rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Metrics */}
-                    <div className="flex flex-wrap gap-4 pt-4 border-t border-border/50">
-                      {project.metrics.map((metric, idx) => (
-                        <div key={idx} className="text-xs">
-                          <p className="text-muted-foreground">{metric}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Project visual */}
-                  <div className="hidden md:block">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                    />
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -430,6 +425,13 @@ export default function Home() {
                   <p className="text-sm text-foreground/80">{exp.description}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Personal Projects Note */}
+            <div className="glass p-6 rounded-lg border-l-4 border-accent space-y-3">
+              <p className="text-sm text-foreground/80">
+                All projects showcased in this portfolio are <span className="font-semibold">personal projects</span> developed to explore creative computation, advanced UI/UX patterns, and experimental technologies.
+              </p>
             </div>
           </div>
         </div>
