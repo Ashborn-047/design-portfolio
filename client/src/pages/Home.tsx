@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
 /**
  * DESIGN PHILOSOPHY: Minimalist Glassmorphism with Editorial Elegance
  * 
- * This portfolio showcases Pushan's work through a refined, content-first aesthetic.
+ * This portfolio showcases Pushan's actual work through a refined, content-first aesthetic.
  * Key elements:
  * - Glassmorphic cards with frosted backgrounds and soft shadows
  * - Serif typography (Playfair Display) for headings, sans-serif (Inter) for body
@@ -17,60 +17,158 @@ import { useState } from "react";
 interface Project {
   id: string;
   title: string;
-  subtitle: string;
+  category: string;
+  status: string;
+  statusColor: string;
   description: string;
+  details: string[];
   tags: string[];
   year: string;
-  featured?: boolean;
+  metrics: string[];
+  links?: { label: string; url: string }[];
+  image: string;
 }
 
 const projects: Project[] = [
   {
-    id: "evolution-atlas",
-    title: "Evolution Atlas",
-    subtitle: "Interactive Digital Experience",
-    description:
-      "An interactive digital experience exploring the journey of life on Earth through time, data, and beautiful visual storytelling. Engineered a modular, preference-driven discovery system replacing static feeds.",
-    tags: ["UI/UX Design", "Interaction Design", "Data Visualization"],
-    year: "2024",
-    featured: true,
-  },
-  {
     id: "webtoon-redesign",
-    subtitle: "Platform Redesign",
     title: "Webtoon Redesign",
+    category: "UI/UX Transformation",
+    status: "Case Study",
+    statusColor: "#00DC64",
     description:
-      "Engineered a modular, preference-driven discovery system replacing static feeds, improving navigation by 35% and user engagement through consistent spacing and typography tokens.",
-    tags: ["UX Research", "Prototyping", "Figma"],
+      "Webtoon's interface suffered from jarring horizontal overflow issues and clunky navigation. This high-fidelity Next.js prototype addresses these flaws with a collapsible navigation rail and strict layout boundaries, emphasizing a premium 'Webtoon Green' aesthetic.",
+    details: [
+      "Collapsible Navigation Rail: A smooth, fully collapsible navigation rail with sleek 300ms transitions.",
+      "Strict Layout Boundaries: Eliminates annoying horizontal overflow bugs present in the original web app.",
+      "Modernized Profile Tabs: Intuitive scroll-navigation and optimized profile tabs.",
+      "Webtoon Design System: A standardized, premium UI theme centered around the signature 'Webtoon Green' brand token.",
+    ],
+    tags: ["Next.js", "Radix UI", "Zustand", "UI Design"],
     year: "2024",
+    metrics: ["Speed: Next 14", "Scale: Radix UI", "Uptime: Zustand"],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/webtoon-redesign-NiCCpvMSHyA49ugKgG4PHo.webp",
   },
   {
-    id: "revolution-atlas",
-    title: "Revolution Atlas",
-    subtitle: "Digital Interface Design",
+    id: "silverwall-telemetry",
+    title: "SilverWall Telemetry",
+    category: "Data & Analytics",
+    status: "In Progress",
+    statusColor: "#E10600",
     description:
-      "An effective dashboard of interface design exploring the evolution of UI/UX typography and shelters from print era constraints to ambient computing.",
-    tags: ["Design Systems", "Typography", "Interaction"],
-    year: "2023",
-    featured: true,
-  },
-  {
-    id: "silverwail-telemetry",
-    title: "SilverWail Telemetry",
-    subtitle: "Real-time Data Tracking",
-    description:
-      "Drew visual direction from the Mercedes AMG Petronas F1 livery — translating the team's iconic silver-green palette into a high-performance telemetry interface.",
-    tags: ["Data Visualization", "Real-time Systems", "Design"],
-    year: "2023",
+      "SilverWall is a high-performance Formula 1 telemetry engine that bridges the gap between raw track data and professional race strategy. Built with a custom UI inspired by the Mercedes-AMG SilverWall, it provides a real-time pit-wall experience.",
+    details: [
+      "SpacetimeDB Backend: A distributed backend for ultra-low latency state management.",
+      "Real-time Telemetry Ingestion: Processes live speed, throttle, and braking data using OpenF1 WebSocket streams.",
+      "AI Driver Analysis: Custom Driver Performance Analysis engine with real-time race strategy commentary by Google Gemini.",
+      "High-Fidelity Telemetry UI: Sleek, premium pit-wall interface design system inspired by official Mercedes-AMG dashboards.",
+    ],
+    tags: ["SpacetimeDB", "WebSocket", "Google Gemini", "Real-time Data"],
+    year: "2024",
+    metrics: ["Speed: 20ms latency", "Scale: 20+ Drivers", "Uptime: 99.9%"],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/silverwall-telemetry-UqT6C2gLwVdCZ7y6fSCsmZ.webp",
   },
   {
     id: "the-terminal",
     title: "The Terminal",
-    subtitle: "Creative Coding Project",
+    category: "Systems",
+    status: "Live",
+    statusColor: "#28CA41",
     description:
-      "Crafted a Neo-Brutalist UI aesthetic, embracing raw typography, deliberate contrast, and exposed structure to create an interface that feels uncompromising and direct.",
-    tags: ["Creative Coding", "UI Design", "Brutalism"],
+      "The Terminal is more than a simple shell simulator—it's a fully-realized Linux-inspired browser operating system. It features a custom in-memory virtual file system, real-time signal propagation, and a sophisticated gamification engine.",
+    details: [
+      "Boot-Sequence Architecture: Authentic system initialization with identity verification, cryptographic loading animations, and memory allocation.",
+      "Deep Gamification Engine: Fully custom reward system featuring Daily Quests, Streak Freezes, and XP multipliers.",
+      "Custom VFS (Virtual File System): In-memory terminal storage supporting file navigation and text editing.",
+      "Terminal Labs: Interactive assessment modules for structured educational tracks with automated scripting evaluations.",
+    ],
+    tags: ["Browser OS", "Gamification", "VFS", "Education"],
     year: "2023",
+    metrics: ["Speed: 50+ Built-ins", "Scale: 1M+ XP Points", "Uptime: 1.2k+ Users"],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/the-terminal-CgULrdTbgxWFBn4wLNvom.webp",
+  },
+  {
+    id: "evolution-atlas",
+    title: "Evolution Atlas",
+    category: "Creative Computation",
+    status: "Live",
+    statusColor: "#7C3AED",
+    description:
+      "Evolution Atlas is an interactive journey through the history of digital design. It features meticulously curated experiments tracing the evolution of interfaces from static tools to ambient computing, utilizing liquid GLSL shaders and procedural rendering.",
+    details: [
+      "Kinetic Typography: Custom interactive text particles that react organically to mouse hover proximity and cursor acceleration.",
+      "Liquid GLSL Shaders: Advanced shaders simulating tangible, liquid-like UI surfaces that deform upon touch.",
+      "Aether Sync: Implements interactive noise fields to visualize asynchronous data streams as flow fields.",
+      "Shader Vault: An embeddable library showcasing 30+ highly-optimized GLSL rendering experiments.",
+    ],
+    tags: ["GLSL", "WebGL", "Procedural", "Creative Coding"],
+    year: "2023",
+    metrics: ["Speed: 60fps", "Scale: 30+ Shaders", "Uptime: 7 Exhibits"],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/evolution-atlas-RDbAF37N83bbqcAD3NUi63.webp",
+  },
+  {
+    id: "svg-forge",
+    title: "SVG Forge",
+    category: "Developer Tooling",
+    status: "Live",
+    statusColor: "#00D4FF",
+    description:
+      "SVG Forge is an interactive sandbox dedicated to the art of vector motion. It serves as a comprehensive visual playground and reference for mastering pure SVG animation techniques—from complex SMIL motion paths to hardware-accelerated filter distortions.",
+    details: [
+      "Real-time Template Engine: Live interactive parameters control the geometry, scale, and timing of inline SVGs.",
+      "Integrated Code Editor: Sandbox module for directly manipulating inline SMIL animations and sophisticated <filter> markup.",
+      "Command Palette: Fuzzy-searchable control center enabling developers to navigate between animation categories.",
+      "Native Filter Laboratory: Real-time visual manipulation of complex SVG filters like displacement mapping and turbulence.",
+    ],
+    tags: ["SVG", "SMIL", "Animation", "Developer Tool"],
+    year: "2023",
+    metrics: ["Speed: 60fps", "Scale: 100% Native", "Uptime: 0 Dependencies"],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/svg-forge-CKm4cMcnuTDEd4TWnQK4Db.webp",
+  },
+  {
+    id: "solar-core",
+    title: "Solar Core",
+    category: "Physics Simulation",
+    status: "Live",
+    statusColor: "#EAB308",
+    description:
+      "Solar Core Explorer is a photorealistic WebGL planetary simulator. It models celestial bodies using high-resolution NASA imagery, custom procedural noise, atmospheric scattering shaders, and gravity equations.",
+    details: [
+      "Procedural Noise Engine: Generates highly-detailed terrain maps and procedural textures for fictional planet surfaces in real-time.",
+      "Optimized WebGL Pipeline: Custom shaders and geometry configurations optimized to run at locked 60fps on mobile and desktop.",
+      "Interactive Orbital Camera: A dual-mode camera enabling seamless planetary traversal and cinematic orbital paths.",
+      "Telemetry HUD: Synchronizes the raw WebGL rendering matrix state with React-driven charts and stats panels.",
+    ],
+    tags: ["WebGL", "Physics", "3D Graphics", "NASA Data"],
+    year: "2023",
+    metrics: ["Speed: 60fps", "Scale: NASA Textures", "Uptime: Custom Physics Engine"],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/solar-core-LruAkiNNEDPk2GHhTsxXog.webp",
+  },
+  {
+    id: "lifesync",
+    title: "LifeSync",
+    category: "AI & Systems",
+    status: "In Progress",
+    statusColor: "#A78BFA",
+    description:
+      "LifeSync is an ambitious personal orchestration system designed to unify behavioral analytics, adaptive AI personas, and seamless smart automation. It uses an active vector-based personality engine to map abstract life goals directly to actionable habits.",
+    details: [
+      "Adaptive Persona Engine: Personalized, context-aware AI assistant leveraging OpenAI embeddings to act as a focused digital twin.",
+      "Vector Behavioral Scoring: Low-latency vector database tracking routines and optimizing habits based on mathematical vectors.",
+      "Cross-Platform Event Bus: Ultra-fast data synchronization across web and native mobile application interfaces.",
+      "MindMesh Integration: Features a visual canvas mapping cognitive focus, mood flows, and mindfulness trends.",
+    ],
+    tags: ["AI", "Vector DB", "OpenAI", "Wellness Tech"],
+    year: "2024",
+    metrics: ["Speed: Real-time sync", "Scale: 1M+ Vector DB Vectors", "Uptime: 94% Accuracy"],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/lifesync-oCn4nMbmjxkNpcbD8UR7aN.webp",
   },
 ];
 
@@ -79,10 +177,10 @@ const skills = [
   "Interaction Design",
   "Design Systems",
   "Data Visualization",
-  "Prototyping",
-  "Figma",
   "Creative Coding",
-  "Typography",
+  "WebGL & GLSL",
+  "Full-Stack Development",
+  "AI Integration",
 ];
 
 const experience = [
@@ -91,13 +189,14 @@ const experience = [
     company: "Freelance",
     period: "2023 - Present",
     description:
-      "Designing and building digital experiences at the intersection of design, technology, and human behavior.",
+      "Designing and building digital experiences at the intersection of design, technology, and human behavior. Specializing in high-performance web applications and creative computational projects.",
   },
   {
-    role: "Design Intern",
-    company: "Academy of Technology",
+    role: "Systems Engineer",
+    company: "Cognizant Technology Solutions",
     period: "2022 - 2023",
-    description: "Learned systems thinking, attention to detail, and stakeholder communication.",
+    description:
+      "Provided infrastructure support and service management across cross-functional teams. Specialized in visualization, Linux administration, and network monitoring tools.",
   },
 ];
 
@@ -153,7 +252,7 @@ export default function Home() {
 
             {/* Subtitle */}
             <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
-              I craft meaningful digital experiences at the intersection of design, technology, and human behavior.
+              I craft meaningful digital experiences at the intersection of design, technology, and human behavior. Specializing in high-performance web applications and creative computational projects.
             </p>
 
             {/* CTA Button */}
@@ -168,7 +267,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero visual - using the generated mockup */}
+          {/* Hero visual */}
           <div className="hidden md:block">
             <div className="glass p-0 overflow-hidden rounded-2xl">
               <img
@@ -211,22 +310,35 @@ export default function Home() {
                   <div className="md:col-span-2 space-y-4">
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="text-xs font-medium tracking-widest text-primary uppercase mb-2">
-                          {project.year}
-                        </p>
-                        <h3 className="font-display text-3xl font-semibold mb-2">{project.title}</h3>
-                        <p className="text-sm text-muted-foreground font-medium">{project.subtitle}</p>
-                      </div>
-                      {project.featured && (
-                        <div className="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
-                          Featured
+                        <div className="flex items-center gap-2 mb-2">
+                          <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
+                            {project.category}
+                          </p>
+                          <span
+                            className="px-2 py-1 rounded-full text-xs font-semibold text-white"
+                            style={{ backgroundColor: project.statusColor }}
+                          >
+                            {project.status}
+                          </span>
                         </div>
-                      )}
+                        <h3 className="font-display text-3xl font-semibold mb-2">{project.title}</h3>
+                        <p className="text-sm text-muted-foreground font-medium">{project.year}</p>
+                      </div>
                     </div>
 
                     <p className="text-base text-foreground/80 leading-relaxed max-w-xl">
                       {project.description}
                     </p>
+
+                    {/* Key details */}
+                    <div className="space-y-2 pt-4">
+                      {project.details.slice(0, 2).map((detail, idx) => (
+                        <div key={idx} className="flex gap-2 text-sm text-foreground/70">
+                          <span className="text-primary">•</span>
+                          <span>{detail}</span>
+                        </div>
+                      ))}
+                    </div>
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 pt-4">
@@ -239,12 +351,21 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
+
+                    {/* Metrics */}
+                    <div className="flex flex-wrap gap-4 pt-4 border-t border-border/50">
+                      {project.metrics.map((metric, idx) => (
+                        <div key={idx} className="text-xs">
+                          <p className="text-muted-foreground">{metric}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Project visual */}
                   <div className="hidden md:block">
                     <img
-                      src={project.id === "evolution-atlas" ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/project-evolution-emzAkeWZVtNgngyuPSMryS.webp" : project.id === "silverwail-telemetry" ? "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/project-telemetry-Xnd25PiXqbCcvf2KT2XGZf.webp" : "https://d2xsxph8kpxj0f.cloudfront.net/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T/project-webtoon-3gn9LQpGv6f7ad8yXapmSG.webp"}
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
                     />
@@ -272,7 +393,7 @@ export default function Home() {
             </div>
 
             <p className="text-base text-foreground/80 leading-relaxed">
-              I started as a mechanical engineer, fascinated by how things work. But I found my true calling not in gears and pistons, but in pixels and logic. Today, I apply systems thinking to digital experiences, translating complex requirements into intuitive, human-centered interfaces.
+              I started as a mechanical engineer, fascinated by how things work. But I found my true calling not in gears and pistons, but in pixels and logic. Today, I apply systems thinking to digital experiences, translating complex requirements into intuitive, human-centered interfaces. I don't just build; I craft universes where ideas can live.
             </p>
 
             {/* Skills grid */}
@@ -320,7 +441,7 @@ export default function Home() {
           <div className="space-y-4">
             <h2 className="font-display text-5xl font-semibold">Let's Build Something</h2>
             <p className="text-lg text-foreground/80">
-              I'm always interested in hearing about new projects and opportunities.
+              I'm always interested in hearing about new projects and opportunities. Let's collaborate and create something meaningful.
             </p>
           </div>
 
