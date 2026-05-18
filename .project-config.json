@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663672682582/hBo9Gfa8vpL3cyneHnmG6T",
+    "access_key_id": "ASIAZV3A2ECZABU7X5BH",
+    "secret_access_key": "Esm4Wkmi7/9sPz9uhjfOSbWtw2Hx2Bm1qv9SaeAn",
+    "session_token": "IQoJb3JpZ2luX2VjEPn//////////wEaCXVzLWVhc3QtMSJGMEQCIAv9vW+GxaUjoKwV7szVhU5w5nvoyx3dQTF0kiR9/7RFAiA0hojq6KLRltsgrFvLow8HUzmppugT5xaTMvRC425W5Cr/AwjC//////////8BEAQaDDY2NTM4NjA5ODg2NiIM/Hjltj5k9UNApGECKtMD7EitJB4/Y9aDTeOJDE0uVRp8iSSUwXu0ZGoDInxgr33aVwdC1lIHJreJsMxzLXOEYPe1zYXiNrVlXzApRAM3d+mNhUkV4qACCqHe9ax58VoYdhuHVygNLY2WlxU17yxh8Ju9cxMisWYtfVr5XfCVu3V6j2Jhezc0I9MKQ3C0PQpVyMJcah4MqeVC1Y90z51OPFom4XbzOAD6dAvzuCizLYnxFpjsm2MUtetlU6TsKDACwKgpeo/BUso47igFsiRX3RauFOUrB/5cvGfvypSSxPAmCmqfh7T8TjawR7NtfIUaiGiDqjUKvuR8N0yMqLdBkoxNObo4hu1xrMNtHO32hh54ILB/4C0hFI97n6lG5hkeslzLBh369FgFYjJ7pRgt3CMOb4sE24P+MspKLff9w9r3G+ffWlU4Q1NvsjjsuMBmubwaVfYUaVA3jcgfw3S1NNcWH6J4jg+Kf474hMModtLzLMJ9Uwqh2vNgIhszHhflwVmtqzjIWtzS5tF4swCN5vzew9+1vHCSTDmijYQcsClJn061dzAAf6hPYI5qr7a3+/axg/3rMitxKQRyOeo1wwlzCVsXaFxjTUHtnVXGUC2tONAvvKP41fpQx1bLGxYpgIUwioat0AY6ngGdIa5Wr3i7N2yRBHXV9wADeU4F0TGNBIF9p8AWWJRfr4UP/zdXpnfbYutcVuyl2vHHSaDyTGUqgvbM4WFNSgo0zAc1MCrHXopBZLFqWA3tRJI9QrntP8D8um2fUUjSzSeE41Mkc5+SNiYpLzjq1ntHzI6lZ6/ywsaSCXbhPDowyZ+RG+5ekbP1wwnr8g+cpRL6Qqqaw0c5b6U/VLCKLw==",
+    "expiration": "2026-05-19T04:49:14.000Z"
+  },
+  "name": "pushan-portfolio",
+  "path": "/home/ubuntu/pushan-portfolio",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "LD9nj7ukqHPxNGEM2ccY4M",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "EUErMnyQHiaDBZQTbthJtW",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Pushan Bhattacharyya",
+    "OWNER_OPEN_ID": "K5kxKV8r2Zgp6W8bf5smE7",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "da143ab6-8743-484a-99eb-b70c26ebd9cc",
+    "VITE_APP_ID": "hBo9Gfa8vpL3cyneHnmG6T",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Pushan Bhattacharyya | Portfolio",
+    "VITE_FRONTEND_FORGE_API_KEY": "AG4n9LgMyY7f7o5FVLzmi5",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
