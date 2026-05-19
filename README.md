@@ -15,14 +15,21 @@ A glassmorphic portfolio showcasing UI/UX design, creative coding, and full-stac
 
 ---
 
-## Preview
+## 🛠️ Tech Stack
 
-> Minimalist glassmorphism meets editorial elegance — frosted glass cards, serif + sans-serif typography pairing, and subtle SVG animations that reflect each project's identity.
+This project is built using a modern, performant, and high-fidelity frontend stack:
 
-## Tech Stack
+- **Core Framework**: **React 19** (leveraging concurrent features and optimal rendering)
+- **Styling**: **Tailwind CSS v4** (utilizing the new `@theme` engine, OKLCH color palettes, custom variants, and layer utilities)
+- **Animations**: **Framer Motion 12** (powering smooth entrance transitions, spring physics, and card-lift effects) paired with **Custom Inline SVG Animations** for unique project identities.
+- **Routing**: **Wouter** (a minimal, 1.5KB React router focusing on developer experience and bundle size)
+- **UI Primitives**: **Radix UI** (fully accessible dialogs, tabs, tooltips, and scroll-areas) + **Sonner** (elegant toast notifications)
+- **Language**: **TypeScript** (strict type safety)
+- **Build Tool**: **Vite 7** (lightning-fast development server with HMR)
+- **Deployment**: **GitHub Pages** (automated CI/CD via GitHub Actions)
 
 | Layer | Technology |
-|-------|-----------|
+|-------|------------|
 | **Framework** | React 19 |
 | **Styling** | Tailwind CSS 4 |
 | **Animations** | Framer Motion + Inline SVG |
@@ -33,7 +40,13 @@ A glassmorphic portfolio showcasing UI/UX design, creative coding, and full-stac
 | **Language** | TypeScript |
 | **Deployment** | GitHub Pages |
 
-## Project Structure
+---
+
+## ✦ Preview
+
+> Minimalist glassmorphism meets editorial elegance — frosted glass cards, serif + sans-serif typography pairing, and subtle SVG animations that reflect each project's identity.
+
+## 📁 Project Structure
 
 ```
 design-portfolio/
@@ -69,7 +82,7 @@ design-portfolio/
 └── README.md
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -102,7 +115,7 @@ The site will be available at `http://localhost:3000`.
 | `npm run lint` | Run TypeScript type checking |
 | `npm run format` | Format code with Prettier |
 
-## Design System
+## 🎨 Design System
 
 The portfolio follows a **Minimalist Glassmorphism** design language:
 
@@ -112,7 +125,7 @@ The portfolio follows a **Minimalist Glassmorphism** design language:
 - **Motion** — Subtle entrance animations, hover lifts, and per-project SVG micro-animations
 - **Responsive** — Mobile-first with progressive enhancement for tablet and desktop
 
-## Featured Projects
+## 🏆 Featured Projects
 
 | Project | Category | Description |
 |---------|----------|-------------|
@@ -124,7 +137,7 @@ The portfolio follows a **Minimalist Glassmorphism** design language:
 | **Solar Core** | Physics Sim | Photorealistic WebGL planetary simulator |
 | **LifeSync** | AI & Systems | Personal orchestration system with adaptive AI |
 
-## Deployment
+## 🌐 Deployment
 
 This project auto-deploys to GitHub Pages via the included workflow on every push to `main`.
 
@@ -134,11 +147,11 @@ npm run build
 # The `dist/` directory is the deployable output
 ```
 
-## License
+## 📄 License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Contact
+## ✉️ Contact
 
 **Pushan Bhattacharyya**
 
