@@ -241,7 +241,7 @@ const experience = [
     company: "Cognizant Technology Solutions",
     period: "2024 - Present",
     description:
-      "Providing infrastructure support and service management across cross-functional teams. Specializing in visualization, Linux administration, and network monitoring tools.",
+      "Providing infrastructure support and service desk management across cross-functional teams. Specializing in visualization, Linux administration, and network monitoring tools.",
   },
 ];
 
