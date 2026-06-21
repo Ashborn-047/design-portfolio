@@ -129,13 +129,15 @@ The portfolio follows a **Minimalist Glassmorphism** design language:
 
 | Project | Category | Description |
 |---------|----------|-------------|
+| **Discord Onboarding** | UX Case Study | Research-driven progressive disclosure onboarding flow to solve channel overload |
+| **Notion Onboarding** | Product Design | Starter Kits and dynamic checklists to eliminate beginner friction |
+| **IRCTC Redesign** | UX Redesign | Heuristic-based passenger flows optimization for speed, clarity, and trust |
 | **Webtoon Redesign** | UI/UX | High-fidelity Next.js prototype fixing navigation and layout issues |
 | **SilverWall Telemetry** | Data & Analytics | Real-time F1 telemetry engine with AI driver analysis |
 | **The Terminal** | Systems | Browser-based Linux OS with VFS, gamification, and labs |
 | **Evolution Atlas** | Creative Coding | GLSL shader experiments tracing design history |
 | **SVG Forge** | Developer Tooling | Interactive SVG animation sandbox and reference |
 | **Solar Core** | Physics Sim | Photorealistic WebGL planetary simulator |
-| **LifeSync** | AI & Systems | Personal orchestration system with adaptive AI |
 
 ## 🌐 Deployment
 
@@ -155,6 +157,6 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 **Pushan Bhattacharyya**
 
-- Email — [bhattacharyyapushan2@gmail.com](mailto:bhattacharyyapushan2@gmail.com)
+- Email — [bhattacharyyapushan@gmail.com](mailto:bhattacharyyapushan@gmail.com)
 - GitHub — [@Ashborn-047](https://github.com/Ashborn-047)
 - LinkedIn — [Pushan Bhattacharyya](https://www.linkedin.com/in/pushan-bhattacharyya-40b718287/)

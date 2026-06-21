@@ -207,32 +207,112 @@ export function SolarCoreAnimation() {
   );
 }
 
-export function LifeSyncAnimation() {
+export function DiscordAnimation() {
   return (
     <svg viewBox="0 0 200 200" className="w-full h-full">
       <defs>
         <style>{`
-          @keyframes pulse { 0%, 100% { r: 5; opacity: 0.8; } 50% { r: 8; opacity: 0.4; } }
-          @keyframes connect { 0% { stroke-dashoffset: 50; } 100% { stroke-dashoffset: 0; } }
-          .lifesync-node { animation: pulse 2s ease-in-out infinite; }
-          .lifesync-line { animation: connect 2s ease-in-out infinite; stroke-dasharray: 50; }
+          @keyframes wave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+          @keyframes chatReveal { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
+          .discord-wave { animation: wave 1.5s ease-in-out infinite; }
+          .discord-chat { animation: chatReveal 0.8s ease-out forwards; }
         `}</style>
       </defs>
       
-      {/* Central node */}
-      <circle cx="100" cy="100" r="8" fill="#A78BFA" opacity="0.9" />
+      {/* Discord logo style background */}
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#5865F2" strokeWidth="2" opacity="0.2" />
       
-      {/* Connection lines */}
-      <line x1="100" y1="100" x2="60" y2="60" stroke="#A78BFA" strokeWidth="1.5" opacity="0.4" className="lifesync-line" />
-      <line x1="100" y1="100" x2="140" y2="60" stroke="#A78BFA" strokeWidth="1.5" opacity="0.4" className="lifesync-line" style={{ animationDelay: '0.3s' }} />
-      <line x1="100" y1="100" x2="140" y2="140" stroke="#A78BFA" strokeWidth="1.5" opacity="0.4" className="lifesync-line" style={{ animationDelay: '0.6s' }} />
-      <line x1="100" y1="100" x2="60" y2="140" stroke="#A78BFA" strokeWidth="1.5" opacity="0.4" className="lifesync-line" style={{ animationDelay: '0.9s' }} />
+      {/* Welcome Hand */}
+      <g className="discord-wave" style={{ transformOrigin: '100px 90px' }}>
+        <path d="M100,50 C110,50 115,60 115,70 C115,80 100,90 100,90 C100,90 85,80 85,70 C85,60 90,50 100,50 Z" fill="#5865F2" opacity="0.8" />
+        <circle cx="100" cy="50" r="6" fill="#5865F2" />
+      </g>
       
-      {/* Connected nodes */}
-      <circle cx="60" cy="60" r="5" fill="#A78BFA" opacity="0.6" className="lifesync-node" />
-      <circle cx="140" cy="60" r="5" fill="#A78BFA" opacity="0.6" className="lifesync-node" style={{ animationDelay: '0.3s' }} />
-      <circle cx="140" cy="140" r="5" fill="#A78BFA" opacity="0.6" className="lifesync-node" style={{ animationDelay: '0.6s' }} />
-      <circle cx="60" cy="140" r="5" fill="#A78BFA" opacity="0.6" className="lifesync-node" style={{ animationDelay: '0.9s' }} />
+      {/* Progressive Disclosure channels */}
+      <g className="discord-chat" style={{ animationDelay: '0.2s' }}>
+        <rect x="35" y="110" width="130" height="22" rx="4" fill="#5865F2" opacity="0.1" stroke="#5865F2" strokeWidth="1" />
+        <text x="45" y="124" fontSize="9" fill="#5865F2" fontWeight="bold">👋 welcome-spotlight</text>
+      </g>
+      <g className="discord-chat" style={{ animationDelay: '0.5s' }}>
+        <rect x="35" y="140" width="130" height="22" rx="4" fill="#5865F2" opacity="0.05" stroke="#5865F2" strokeWidth="0.5" />
+        <text x="45" y="154" fontSize="9" fill="#5865F2" fontWeight="bold" opacity="0.7">💬 general-chat</text>
+      </g>
     </svg>
   );
 }
+
+export function NotionAnimation() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full">
+      <defs>
+        <style>{`
+          @keyframes fillCheck { 0% { stroke-dashoffset: 20; } 100% { stroke-dashoffset: 0; } }
+          @keyframes canvasAnim { 0% { opacity: 0.3; } 50% { opacity: 0.8; } 100% { opacity: 0.3; } }
+          .notion-check { stroke-dasharray: 20; animation: fillCheck 1s ease-out forwards; }
+          .notion-glow { animation: canvasAnim 3s infinite; }
+        `}</style>
+      </defs>
+      
+      {/* Empty State Canvas */}
+      <rect x="25" y="25" width="150" height="150" rx="8" fill="none" stroke="#111" strokeWidth="2" opacity="0.1" />
+      
+      {/* Checklist items */}
+      <g className="notion-glow">
+        <rect x="40" y="45" width="16" height="16" rx="2" fill="none" stroke="#111" strokeWidth="1.5" />
+        <line x1="68" y1="53" x2="160" y2="53" stroke="#111" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+      </g>
+      
+      <g style={{ transform: 'translateY(32px)' }}>
+        <rect x="40" y="45" width="16" height="16" rx="2" fill="#111" />
+        <path d="M44,53 L47,56 L52,50" fill="none" stroke="#fff" strokeWidth="1.5" className="notion-check" />
+        <line x1="68" y1="53" x2="160" y2="53" stroke="#111" strokeWidth="2" strokeLinecap="round" />
+      </g>
+      
+      <g style={{ transform: 'translateY(64px)' }}>
+        <rect x="40" y="45" width="16" height="16" rx="2" fill="none" stroke="#111" strokeWidth="1.5" />
+        <line x1="68" y1="53" x2="140" y2="53" stroke="#111" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
+      </g>
+      
+      {/* Sparkles */}
+      <path d="M150,120 L153,125 L158,126 L153,129 L150,134 L147,129 L142,126 L147,125 Z" fill="#2563EB" opacity="0.8" />
+    </svg>
+  );
+}
+
+export function IRCTCAnimation() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full">
+      <defs>
+        <style>{`
+          @keyframes trackMove { 0% { transform: translateY(0); } 100% { transform: translateY(20px); } }
+          @keyframes pulseSeat { 0%, 100% { fill: #F5A623; opacity: 0.8; } 50% { fill: #00529B; opacity: 0.8; } }
+          .irctc-track { animation: trackMove 1s linear infinite; }
+          .irctc-seat { animation: pulseSeat 2.5s ease-in-out infinite; }
+        `}</style>
+      </defs>
+      
+      {/* Ticket Container */}
+      <rect x="20" y="30" width="160" height="140" rx="8" fill="none" stroke="#00529B" strokeWidth="1.5" opacity="0.2" />
+      
+      {/* Rail Tracks */}
+      <g className="irctc-track">
+        <line x1="50" y1="0" x2="50" y2="200" stroke="#00529B" strokeWidth="1" strokeDasharray="5, 5" opacity="0.3" />
+        <line x1="150" y1="0" x2="150" y2="200" stroke="#00529B" strokeWidth="1" strokeDasharray="5, 5" opacity="0.3" />
+      </g>
+      
+      {/* Coach Layout Seats Grid */}
+      <rect x="75" y="55" width="20" height="20" rx="3" fill="#00529B" opacity="0.1" />
+      <rect x="105" y="55" width="20" height="20" rx="3" fill="#00529B" opacity="0.1" />
+      
+      <rect x="75" y="90" width="20" height="20" rx="3" className="irctc-seat" />
+      <rect x="105" y="90" width="20" height="20" rx="3" fill="#00529B" opacity="0.5" />
+      
+      <rect x="75" y="125" width="20" height="20" rx="3" fill="#00529B" opacity="0.1" />
+      <rect x="105" y="125" width="20" height="20" rx="3" fill="#00529B" opacity="0.1" />
+      
+      {/* Fast Train outline */}
+      <path d="M100,10 L115,22 L115,35 L85,35 L85,22 Z" fill="#F5A623" opacity="0.8" />
+    </svg>
+  );
+}
+

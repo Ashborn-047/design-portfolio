@@ -218,3 +218,25 @@
     }
   }
 }
+
+/* Hero gradient text shimmer */
+.hero-gradient-text {
+  background: linear-gradient(
+    135deg,
+    oklch(0.35 0.12 290) 0%,
+    oklch(0.45 0.18 280) 25%,
+    oklch(0.50 0.16 260) 50%,
+    oklch(0.45 0.18 280) 75%,
+    oklch(0.35 0.12 290) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
